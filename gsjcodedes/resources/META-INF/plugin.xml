@@ -1,0 +1,52 @@
+<idea-plugin>
+  <!-- 插件唯一id，不能和其他插件项目重复，所以推荐使用com.xxx.xxx的格式
+     插件不同版本之间不能更改，若没有指定，则与插件名称相同 -->
+  <id>club.gsjblog.codedes</id>
+  <!-- 插件名称，别人在官方插件库搜索你的插件时使用的名称 -->
+  <name>codedes</name>
+  <!-- 插件版本 -->
+  <version>1.0</version>
+  <!-- 供应商主页和email-->
+  <vendor email="1164014750@qq.com" url="http://gsjblog.club/GsjBlog">YourCompany</vendor>
+  <description> 由于项目字段过多并且抽象，希望选择字段后能展示出来在项目中的中文含义</description>
+  <!-- 插件版本变更信息，支持HTML标签,将展示在 settings | Plugins 对话框和插件仓库的Web页面 -->
+  <change-notes>
+      由于项目字段过多并且抽象，希望选择字段后能展示出来在项目中的中文含义
+  </change-notes>
+  <!-- 插件兼容IDEA的最大和最小 build 号，两个属性可以任选一个或者同时使用
+       官网详细介绍：http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html-->
+  <idea-version since-build="145.0"/>
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <!-- uncomment to enable plugin in all products
+  <depends>com.intellij.modules.lang</depends>
+  -->
+  <!--&lt;!&ndash; 声明该插件对IDEA core或其他插件的扩展 &ndash;&gt;-->
+  <!--<extensions defaultExtensionNs="com.intellij">-->
+    <!--&lt;!&ndash; Add your extensions here &ndash;&gt;-->
+  <!--</extensions>-->
+  <!--
+  第一个版本： 作用帮助在接触新项目的时候，对一些字段的意思，频繁的查找
+  version 1.0
+  获取当前选中的字段名称，根据字段名称显示该字段在配置文件中的汉语意思
+  version 1.1
+  提供配置界面，可以配置peoperties 文件的位置，快速在idea中打开peoperties文件
+
+
+  目标： 实现在对象引用方法的时候，就将字段含义提示出来，避免频繁进入文件，查看字段含义
+  (1) 实体字段意思的提示
+    当调用对象进行 . 这个的时候，怎么能获取这个动作
+  -->
+  <!-- Actions -->
+  <actions>
+    <!-- Add your actions here -->
+    <action id="Code.CodeDes" class="club.gsjblog.codedes.CodeDes" text="codedes" description="字段解释">
+      <add-to-group group-id="EditMenu" anchor="first"/>
+      <keyboard-shortcut keymap="$default" first-keystroke="ctrl P"/>
+    </action>
+  </actions>
+
+
+
+
+</idea-plugin>
