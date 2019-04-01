@@ -53,4 +53,25 @@ public class PropertiesUtils {
         }
         return "des:解析失败";
     }
+
+
+    /**
+     * 获取文件行数
+     * @param filePath  文件路径
+     * @return
+     * @throws IOException
+     */
+    public static int getTotalLines(String filePath) throws IOException {
+        File file = new File(filePath);
+        long startTime = System.currentTimeMillis();
+        FileReader in = new FileReader(file);
+        LineNumberReader reader = new LineNumberReader(in);
+        reader.skip(Long.MAX_VALUE);
+        int lines = reader.getLineNumber();
+        reader.close();
+        long endTime = System.currentTimeMillis();
+
+        System.out.println("统计文件行数运行时间： " + (endTime - startTime) + "ms");
+        return lines;
+    }
 }
