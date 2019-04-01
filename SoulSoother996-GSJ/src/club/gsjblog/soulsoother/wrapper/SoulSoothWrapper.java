@@ -7,6 +7,8 @@ import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
+import java.util.Random;
 
 
 /**
@@ -32,9 +34,17 @@ public class SoulSoothWrapper  extends DialogWrapper {
     @Override
     protected JComponent createCenterPanel() {
         JPanel dialogPanel = new JPanel(new BorderLayout());
-
         String path = this.getClass().getClassLoader().getResource("/").getPath();
-        String des = PropertiesUtils.getPropertieByKey(path+"base.properties", "jitang06");
+        Random random = new Random();
+        int size = 1;
+        try {
+            size = PropertiesUtils.getTotalLines(path + "base.properties");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        int i = random.nextInt(size);
+        String des = PropertiesUtils.getPropertieByKey(path+"base.properties", "jitang"+i);
 
         JLabel label = new JLabel(des);
         label.setPreferredSize(new Dimension(600, 350));
@@ -42,3 +52,4 @@ public class SoulSoothWrapper  extends DialogWrapper {
         return dialogPanel;
     }
 }
+// JLabel 换行 https://blog.csdn.net/lianchao668/article/details/7937541
