@@ -22,6 +22,13 @@ public class SocketClientDemo01 {
 
         outputStream.write(new String("你好").getBytes("UTF-8"));
         //通过shutdownOutput 已经发送完数据，后续只能接受数据
+        /**
+         * 调用Socket的shutdownOutput()方法，底层会告知服务端我这边已经写完了，那么服务端收到消息后，就能知道已经读取完消息，
+         * 如果服务端有要返回给客户的消息那么就可以通过服务端的输出流发送给客户端，如果没有，直接关闭Socket。
+         * 缺点：
+         * 不能再次发送消息给服务端，如果再次发送，需要重新建立Socket连接
+         * 　　这个缺点，在访问频率比较高的情况下将是一个需要优化的地方。
+         */
         socket.shutdownOutput();
 
 
