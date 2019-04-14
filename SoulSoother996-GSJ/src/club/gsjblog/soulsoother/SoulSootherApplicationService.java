@@ -33,8 +33,8 @@ public class SoulSootherApplicationService implements ApplicationComponent {
 //        ApplicationManager.getApplication().runWriteAction(new ShowTimeTask());
 //        Application application = ApplicationManager.getApplication();
 //        ApplicationFactory applicationFactory = new ApplicationFactory(application);
-        ShowTimeTask service = ServiceManager.getService(ShowTimeTask.class);
-        service.show();
+//        ShowTimeTask service = ServiceManager.getService(ShowTimeTask.class);
+//        service.show();
 
     }
 
